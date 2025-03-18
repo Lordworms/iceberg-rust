@@ -3849,7 +3849,9 @@
 <a href="#3848" id="3848">3848</a>
 <a href="#3849" id="3849">3849</a>
 <a href="#3850" id="3850">3850</a>
-<a href="#3851" id="3851">3851</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
+<a href="#3851" id="3851">3851</a>
+<a href="#3852" id="3852">3852</a>
+<a href="#3853" id="3853">3853</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
 // or more contributor license agreements.  See the NOTICE file
 // distributed with this work for additional information
 // regarding copyright ownership.  The ASF licenses this file
@@ -5076,6 +5078,7 @@
 }
 
 <span class="doccomment">/// Map is a collection of key-value pairs with a key type and a value type.
+///
 /// It used in Literal::Map, to make it hashable, the order of key-value pairs is stored in a separate vector
 /// so that we can hash the map in a deterministic way. But it also means that the order of key-value pairs is matter
 /// for the hash value.
@@ -5572,6 +5575,7 @@
 }
 
 <span class="doccomment">/// The partition struct stores the tuple of partition values for each file.
+///
 /// Its type is derived from the partition fields of the partition spec used to write the manifest file.
 /// In v2, the partition struct’s field ids must match the ids from the partition spec.
 </span><span class="attr">#[derive(Debug, Clone, PartialEq, Eq, Hash)]

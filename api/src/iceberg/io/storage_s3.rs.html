@@ -175,7 +175,8 @@
 <a href="#174" id="174">174</a>
 <a href="#175" id="175">175</a>
 <a href="#176" id="176">176</a>
-<a href="#177" id="177">177</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
+<a href="#177" id="177">177</a>
+<a href="#178" id="178">178</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
 // or more contributor license agreements.  See the NOTICE file
 // distributed with this work for additional information
 // regarding copyright ownership.  The ASF licenses this file
@@ -223,6 +224,7 @@
 <span class="doccomment">/// S3 Server Side Encryption Type.
 </span><span class="kw">pub const </span>S3_SSE_TYPE: <span class="kw-2">&amp;</span>str = <span class="string">"s3.sse.type"</span>;
 <span class="doccomment">/// S3 Server Side Encryption Key.
+///
 /// If S3 encryption type is kms, input is a KMS Key ID.
 /// In case this property is not set, default key "aws/s3" is used.
 /// If encryption type is custom, input is a custom base-64 AES256 symmetric key.
