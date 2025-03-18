@@ -4990,9 +4990,9 @@
     }
 
     <span class="kw">fn </span>string_to_i128&lt;S: AsRef&lt;str&gt;&gt;(s: S) -&gt; <span class="prelude-ty">Result</span>&lt;i128&gt; {
-        <span class="kw">return </span>s.as_ref().parse::&lt;i128&gt;().map_err(|e| {
+        s.as_ref().parse::&lt;i128&gt;().map_err(|e| {
             Error::new(ErrorKind::DataInvalid, <span class="string">"Can't parse string to i128."</span>).with_source(e)
-        });
+        })
     }
 
     <span class="doccomment">/// Convert the datum to `target_type`.

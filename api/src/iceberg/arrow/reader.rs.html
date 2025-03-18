@@ -1840,7 +1840,7 @@
                     f.metadata()
                         .get(PARQUET_FIELD_ID_META_KEY)
                         .and_then(|field_id| i32::from_str(field_id).ok())
-                        .map_or(<span class="bool-val">false</span>, |field_id| {
+                        .is_some_and(|field_id| {
                             projected_fields.insert((<span class="kw-2">*</span>f).clone(), field_id);
                             leaf_field_ids.contains(<span class="kw-2">&amp;</span>field_id)
                         })

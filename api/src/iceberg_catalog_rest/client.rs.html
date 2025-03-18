@@ -256,7 +256,11 @@
 <a href="#255" id="255">255</a>
 <a href="#256" id="256">256</a>
 <a href="#257" id="257">257</a>
-<a href="#258" id="258">258</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
+<a href="#258" id="258">258</a>
+<a href="#259" id="259">259</a>
+<a href="#260" id="260">260</a>
+<a href="#261" id="261">261</a>
+<a href="#262" id="262">262</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
 // or more contributor license agreements.  See the NOTICE file
 // distributed with this work for additional information
 // regarding copyright ownership.  The ASF licenses this file
@@ -336,17 +340,21 @@
                 cfg.token()
                     .or_else(|| <span class="self">self</span>.token.into_inner().ok().flatten()),
             ),
-            token_endpoint: (!cfg.get_token_endpoint().is_empty())
-                .then(|| cfg.get_token_endpoint())
-                .unwrap_or(<span class="self">self</span>.token_endpoint),
+            token_endpoint: <span class="kw">if </span>!cfg.get_token_endpoint().is_empty() {
+                cfg.get_token_endpoint()
+            } <span class="kw">else </span>{
+                <span class="self">self</span>.token_endpoint
+            },
             credential: cfg.credential().or(<span class="self">self</span>.credential),
             extra_headers: (!cfg.extra_headers()<span class="question-mark">?</span>.is_empty())
                 .then(|| cfg.extra_headers())
                 .transpose()<span class="question-mark">?
                 </span>.unwrap_or(<span class="self">self</span>.extra_headers),
-            extra_oauth_params: (!cfg.extra_oauth_params().is_empty())
-                .then(|| cfg.extra_oauth_params())
-                .unwrap_or(<span class="self">self</span>.extra_oauth_params),
+            extra_oauth_params: <span class="kw">if </span>!cfg.extra_oauth_params().is_empty() {
+                cfg.extra_oauth_params()
+            } <span class="kw">else </span>{
+                <span class="self">self</span>.extra_oauth_params
+            },
         })
     }
 
