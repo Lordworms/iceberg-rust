@@ -1864,7 +1864,7 @@
                     f.metadata()
                         .get(PARQUET_FIELD_ID_META_KEY)
                         .and_then(|field_id| i32::from_str(field_id).ok())
-                        .map_or(<span class="bool-val">false</span>, |field_id| {
+                        .is_some_and(|field_id| {
                             projected_fields.insert((<span class="kw-2">*</span>f).clone(), field_id);
                             leaf_field_ids.contains(<span class="kw-2">&amp;</span>field_id)
                         })
@@ -2316,7 +2316,7 @@
 <span class="kw">type </span>PredicateResult =
     <span class="kw">dyn </span>FnMut(RecordBatch) -&gt; std::result::Result&lt;BooleanArray, ArrowError&gt; + Send + <span class="lifetime">'static</span>;
 
-<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; BoundPredicateVisitor <span class="kw">for </span>PredicateConverter&lt;<span class="lifetime">'a</span>&gt; {
+<span class="kw">impl </span>BoundPredicateVisitor <span class="kw">for </span>PredicateConverter&lt;<span class="lifetime">'_</span>&gt; {
     <span class="kw">type </span>T = Box&lt;PredicateResult&gt;;
 
     <span class="kw">fn </span>always_true(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;Box&lt;PredicateResult&gt;&gt; {

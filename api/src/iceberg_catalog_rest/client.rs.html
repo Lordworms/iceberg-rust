@@ -262,7 +262,9 @@
 <a href="#261" id="261">261</a>
 <a href="#262" id="262">262</a>
 <a href="#263" id="263">263</a>
-<a href="#264" id="264">264</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
+<a href="#264" id="264">264</a>
+<a href="#265" id="265">265</a>
+<a href="#266" id="266">266</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
 // or more contributor license agreements.  See the NOTICE file
 // distributed with this work for additional information
 // regarding copyright ownership.  The ASF licenses this file
@@ -351,9 +353,11 @@
                 cfg.token()
                     .or_else(|| <span class="self">self</span>.token.into_inner().ok().flatten()),
             ),
-            token_endpoint: (!cfg.get_token_endpoint().is_empty())
-                .then(|| cfg.get_token_endpoint())
-                .unwrap_or(<span class="self">self</span>.token_endpoint),
+            token_endpoint: <span class="kw">if </span>!cfg.get_token_endpoint().is_empty() {
+                cfg.get_token_endpoint()
+            } <span class="kw">else </span>{
+                <span class="self">self</span>.token_endpoint
+            },
             credential: cfg.credential().or(<span class="self">self</span>.credential),
             extra_headers,
             extra_oauth_params: (!cfg.extra_oauth_params().is_empty())
