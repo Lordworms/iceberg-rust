@@ -52,7 +52,8 @@
 <a href="#51" id="51">51</a>
 <a href="#52" id="52">52</a>
 <a href="#53" id="53">53</a>
-<a href="#54" id="54">54</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
+<a href="#54" id="54">54</a>
+<a href="#55" id="55">55</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
 // or more contributor license agreements.  See the NOTICE file
 // distributed with this work for additional information
 // regarding copyright ownership.  The ASF licenses this file
@@ -96,9 +97,10 @@
 </span><span class="kw">impl </span>FileWrite <span class="kw">for </span>TrackWriter {
     <span class="kw">async fn </span>write(<span class="kw-2">&amp;mut </span><span class="self">self</span>, bs: Bytes) -&gt; <span class="prelude-ty">Result</span>&lt;()&gt; {
         <span class="kw">let </span>size = bs.len();
-        <span class="self">self</span>.inner.write(bs).<span class="kw">await</span>.inspect(|_v| {
+        <span class="self">self</span>.inner.write(bs).<span class="kw">await</span>.map(|v| {
             <span class="self">self</span>.written_size
                 .fetch_add(size <span class="kw">as </span>i64, std::sync::atomic::Ordering::Relaxed);
+            v
         })
     }
 

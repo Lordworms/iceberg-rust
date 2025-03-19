@@ -715,7 +715,7 @@
                 )
             })<span class="question-mark">?</span>;
 
-        <span class="kw">let </span>file_io = FileIO::from_path(<span class="macro">format!</span>(<span class="string">"s3://{}"</span>, bucket_name))<span class="question-mark">?
+        <span class="kw">let </span>file_io = FileIO::from_path(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">"s3://{}"</span>, bucket_name))<span class="question-mark">?
             </span>.with_props(<span class="kw-2">&amp;</span>config.properties)
             .build()<span class="question-mark">?</span>;
 

@@ -2048,9 +2048,7 @@
 <a href="#2047" id="2047">2047</a>
 <a href="#2048" id="2048">2048</a>
 <a href="#2049" id="2049">2049</a>
-<a href="#2050" id="2050">2050</a>
-<a href="#2051" id="2051">2051</a>
-<a href="#2052" id="2052">2052</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
+<a href="#2050" id="2050">2050</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
 // or more contributor license agreements.  See the NOTICE file
 // distributed with this work for additional information
 // regarding copyright ownership.  The ASF licenses this file
@@ -2411,8 +2409,7 @@
 }
 
 <span class="doccomment">/// TableUpdate represents an update to a table in the catalog.
-</span><span class="attr">#[allow(clippy::large_enum_variant)]
-#[derive(Debug, Serialize, Deserialize, PartialEq, Clone)]
+</span><span class="attr">#[derive(Debug, Serialize, Deserialize, PartialEq, Clone)]
 #[serde(tag = <span class="string">"action"</span>, rename_all = <span class="string">"kebab-case"</span>)]
 </span><span class="kw">pub enum </span>TableUpdate {
     <span class="doccomment">/// Upgrade table's format version
@@ -2801,8 +2798,7 @@
 }
 
 <span class="doccomment">/// ViewUpdate represents an update to a view in the catalog.
-</span><span class="attr">#[allow(clippy::large_enum_variant)]
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+</span><span class="attr">#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = <span class="string">"action"</span>, rename_all = <span class="string">"kebab-case"</span>)]
 </span><span class="kw">pub enum </span>ViewUpdate {
     <span class="doccomment">/// Assign a new UUID to the view

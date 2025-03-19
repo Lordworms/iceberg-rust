@@ -2308,8 +2308,7 @@
 <a href="#2307" id="2307">2307</a>
 <a href="#2308" id="2308">2308</a>
 <a href="#2309" id="2309">2309</a>
-<a href="#2310" id="2310">2310</a>
-<a href="#2311" id="2311">2311</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
+<a href="#2310" id="2310">2310</a></pre></div><pre class="rust"><code><span class="comment">// Licensed to the Apache Software Foundation (ASF) under one
 // or more contributor license agreements.  See the NOTICE file
 // distributed with this work for additional information
 // regarding copyright ownership.  The ASF licenses this file
@@ -2771,7 +2770,7 @@
             }
         });
 
-        <span class="prelude-val">Ok</span>(file_scan_task_rx.boxed())
+        <span class="kw">return </span><span class="prelude-val">Ok</span>(file_scan_task_rx.boxed());
     }
 
     <span class="doccomment">/// Returns an [`ArrowRecordBatchStream`].
@@ -3426,8 +3425,7 @@
     }
 }
 
-<span class="attr">#[allow(missing_docs)]
-#[cfg(test)]
+<span class="attr">#[cfg(test)]
 </span><span class="kw">pub mod </span>tests {
     <span class="kw">use </span>std::collections::HashMap;
     <span class="kw">use </span>std::fs;

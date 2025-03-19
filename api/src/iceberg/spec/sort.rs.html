@@ -665,7 +665,7 @@
     <span class="doccomment">/// Creates a new unbound sort order.
     </span><span class="kw">pub fn </span>build_unbound(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;SortOrder&gt; {
         <span class="kw">let </span>fields = <span class="self">self</span>.fields.clone().unwrap_or_default();
-        <span class="kw">match </span>(<span class="self">self</span>.order_id, fields.as_slice()) {
+        <span class="kw">return match </span>(<span class="self">self</span>.order_id, fields.as_slice()) {
             (<span class="prelude-val">Some</span>(SortOrder::UNSORTED_ORDER_ID) | <span class="prelude-val">None</span>, []) =&gt; <span class="prelude-val">Ok</span>(SortOrder::unsorted_order()),
             (<span class="kw">_</span>, []) =&gt; <span class="prelude-val">Err</span>(Error::new(
                 ErrorKind::Unexpected,
@@ -682,7 +682,7 @@
                 order_id: maybe_order_id.unwrap_or(<span class="number">1</span>),
                 fields: fields.to_vec(),
             }),
-        }
+        };
     }
 
     <span class="doccomment">/// Creates a new bound sort order.
